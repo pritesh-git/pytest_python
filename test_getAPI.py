@@ -9,7 +9,6 @@ urlParam = {"page": 1}  # Default Param for url
 @pytest.mark.users
 def test_user_list():
     resp = requests.get(user_url, urlParam)  # Multi User List Fetch API
-    # print(resp)
     assert resp.status_code == 200, "API Failed,Status Should Be 200"
     assert resp.cookies is not None, "No Cookie Passed In Response"
 
@@ -29,7 +28,6 @@ def test_user_list():
 @pytest.mark.users
 def test_single_user():
     resp = requests.get(user_url + '/2')  # Single User Fetch API
-    # print(resp)
     assert resp.status_code == 200, "API Failed,Status Should Be 200"
     assert resp.cookies != '', "No Cookie Passed In Response"
 
@@ -46,7 +44,6 @@ def test_single_user():
 @pytest.mark.users
 def test_wrong_user():
     resp = requests.get(user_url + '/50')  # Wrong User Fetch API,This Should Fail
-    # print(resp)
     assert resp.status_code == 404, "Status Code Should Be 404"
 
 
@@ -55,7 +52,6 @@ def test_wrong_user():
 @pytest.mark.resource
 def test_resource_list():
     resp = requests.get(resource_url)  # Multi Resource List Fetch API
-    # print(resp)
     assert resp.status_code == 200, "API Failed,Status Should Be 200"
     assert resp.cookies is not None, "No Cookie Passed In Response"
 
@@ -75,7 +71,6 @@ def test_resource_list():
 @pytest.mark.resource
 def test_single_resource():
     resp = requests.get(resource_url + '/2')  # Single Resource Fetch API
-    # print(resp)
     assert resp.status_code == 200, "API Failed,Status Should Be 200"
     assert resp.cookies is not None, "No Cookie Passed In Response"
 
@@ -93,5 +88,4 @@ def test_single_resource():
 @pytest.mark.resource
 def test_wrong_resource():
     resp = requests.get(resource_url + '/50')  # Wrong Resource Fetch API,This Should Fail
-    # print(resp)
     assert resp.status_code == 404, "Status Code Should Be 404"

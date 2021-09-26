@@ -7,7 +7,6 @@ user_details = {"name": "morpheus", "job": "zion resident"}
 @pytest.mark.users
 def test_put_request():
     resp = requests.put(user_url+'/2', data=user_details)  # Update User API
-    # print(resp)
     assert resp.status_code == 200, "API Failed,Status Should Be 200"
 
     user = resp.json()  # Convert to JSON for accessing data easily.
@@ -22,7 +21,6 @@ def test_put_request():
 @pytest.mark.users
 def test_patch_request():
     resp = requests.patch(user_url+'/2', data=user_details)  # Update User API
-    # print(resp)
     assert resp.status_code == 200, "API Failed,Status Should Be 200"
 
     user = resp.json()  # Convert to JSON for accessing data easily.
@@ -37,6 +35,5 @@ def test_patch_request():
 @pytest.mark.users
 def test_delete_request():
     resp = requests.delete(user_url + '/2')  # Delete User API
-    # print(resp)
     assert resp.status_code == 204, "API Failed,Status Should Be 204"
 
